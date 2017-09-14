@@ -1,0 +1,117 @@
+\documentclass[1p]{elsarticle}
+%preprint, review, or 1p, or 3p
+
+% Template disponible ) : https://www.elsevier.com/authors/author-schemas/latex-instructions
+
+\usepackage{lineno,hyperref}
+\usepackage{amsmath}
+\usepackage{booktabs} %pour toprule dans les tableaux
+\usepackage{eurosym} % pour le symbole euro
+\usepackage{subcaption} %permet de mettre les légendes sur plusieurs lignes avec \\
+\usepackage{setspace} % Pour gérer les interlignes
+\usepackage[titletoc,title]{appendix}
+\usepackage{xcolor}
+\definecolor{CiredGreen}{RGB}{0,121,126}  
+
+\usepackage{sectsty}
+\sectionfont{\color{CiredGreen}}
+
+\modulolinenumbers[5]
+
+\journal{Journal of \LaTeX\ Templates}
+
+%% Harvard style
+\bibliographystyle{biblio-style.bst}\biboptions{authoryear}
+
+%Pour enlever la note de bas de page "Preprint submitted to Elsevier, cf https://tex.stackexchange.com/questions/35712/modify-footer-used-by-elsarticle-cls
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\ps@pprintTitle}{\footnotesize\itshape
+	Preprint submitted to \ifx\@journal\@empty Elsevier
+	\else\@journal\fi\hfill\today}{\relax}{}{}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+	colorlinks=true,
+}
+
+\begin{document}
+\hypersetup{
+		linkcolor=CiredGreen,
+		urlcolor=CiredGreen,
+		citecolor=CiredGreen
+}
+
+\begin{frontmatter}
+	
+	\title{How shifting investment towards low-carbon sectors impacts employment: three determinants under scrutiny}
+	
+	\author[perrier]{Quentin Perrier\corref{cor1}}
+	\ead{perrier@centre-cired.fr}
+	\author[quirion]{Philippe Quirion}
+	\ead{quirion@centre-cired.fr}
+	\cortext[cor1]{Corresponding author. Tel.: +33663246813}
+	\address[perrier]{CIRED, 45 bis, avenue de la Belle Gabrielle, 94736 Nogent-sur-Marne Cedex, France}
+	\address[quirion]{CIRED, CNRS, 45 bis, avenue de la Belle Gabrielle, 94736 Nogent-sur-Marne Cedex, France}
+	
+	\begin{abstract}
+		The threat of climate change requires investment to be rapidly shifted from fossil fuels towards low-carbon sectors, and this shift generates heated debates about its impact on employment. 
+		Although many employment studies exist, the economic mechanisms at play remain unclear. 
+		Using stylized CGE and IO models, we identify and discuss three channels of job creation resulting from an investment shift: positive employment impacts arising from targeting sectors with a high labour share in value added, low wages and low import rates. Results are robust across both models, except for the last, which only occurs in IO. 
+		We then undertake a numerical analysis of two policies: solar panel installation and weatherproofing. These investments both yield a positive effect on employment, a result which is robust across models, due to a high labour share and low wages in these sectors. The results are roughly similar in IO and CGE for solar; for weatherproofing, the results are higher in IO because of low import rates, by a factor ranging from 1.19 to 1.87.
+		Our conclusions challenge the idea that renewable energies boost employment by reducing imports, but they also suggest that an employment double dividend might exist when encouraging low-carbon labour-intensive sectors.
+		\newline
+		 
+		\textit{Keywords}: Renewable energies; Investment; Employment; CGE; Input-output
+		\newline
+
+		\textit{JEL Classification}: C67, C68, E24, Q42, Q43
+		%C67 Input-Output 
+		%C68 CGE
+		%E24 Employment
+		%Q42 alternative energy sources
+		%Q43 Energy and the Macroeconomy
+		\strut
+		
+		%\begin{keyword}
+		%Employment \sep Energy transition \sep CGE \sep Input-output
+		%\end{keyword}
+	\end{abstract}
+	
+\end{frontmatter}
+
+\textbf{Highlights}
+\begin{itemize}
+	%setlength\itemsep{0.2em}
+	\itemsep-0.5em 
+	\item Economic mechanisms of job creation resulting from investment shifts are unclear
+	\item We identify three key factors and test their impacts in CGE and IO models
+	\item Encouraging sectors with a high labor share or low wages yields positive job impacts
+	\item The impact of import rates is more ambiguous: strong in IO but much weaker in CGE
+	\item Numerically, investing in solar PV or weatherproofing creates jobs in both models
+\end{itemize}
+
+\cleardoublepage
+
+%\linenumbers
+
+% The main file	
+\include{mechanisms}
+
+\cleardoublepage
+
+\bibliography{mechanisms} 
+
+%%%%%%%%%%%%%%%%%%%
+% APPENDIX
+
+\begin{spacing}{01} 
+	
+	\begin{appendices}
+		\input{appendix.tex}
+	\end{appendices}
+	
+\end{spacing}
+
+\end{document}
